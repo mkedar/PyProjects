@@ -19,10 +19,10 @@ def update(frame):
     xdata.append(frame)
     ydata.append(fetch_temperature())
 
-    if len(xdata) <= 10:
-        ax.set_xlim(1, 10)
+    if len(xdata) > 10:
+        ax.set_xlim(max(xdata) - 9, max(xdata) + 1)
     else:
-        ax.set_xlim(min(xdata), max(xdata))
+        ax.set_xlim(0, 10)
 
     ln.set_data(xdata, ydata)
     return ln,
